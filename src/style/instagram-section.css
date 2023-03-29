@@ -1,0 +1,50 @@
+.instagram-section{
+    height: 18.9rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+.instagram-section h2{
+    font-family: "Jost", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.wrapper-insta-cards{
+    height:250px ;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    overflow: hidden;
+    align-items: center;
+    
+}
+.insta-cards{
+    position: relative;
+    width: 140px;
+    height: 190px;
+    box-shadow: 0px 8px 20px black;
+    border-radius: 5px;
+    background-image: url('../../public/image/jasmin-chew-WKD2vIe8Rb0-unsplash.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.9;
+    filter: brightness(150%);
+}
+
+.insta-cards.before{
+    left: -37px;
+    opacity: 0.6;
+}
+
+.insta-cards.after{
+    left: 37px;
+    opacity: 0.6;
+}
+
+
+
+

@@ -1,0 +1,254 @@
+header{
+    width: 100%;
+}
+nav{
+    
+    height: 80px;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 30px;
+}
+#logo{
+    margin-top: 20px;
+    width: 150px;
+    height: 80px;
+    background-image: url('../../public/image/logo\ MLjoias.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.menu-bar.hide{
+    display: flex;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: #FAF4EC;
+    z-index: 100;
+    animation: open 0.4s linear ;
+}
+.menu-bar{
+    display: none;
+}
+.menu-bar nav{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+}
+.menu-bar nav a{
+    font-family: "Roboto",sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: #555353;    
+}
+#close{
+    width: 40px;height: 40px;
+    background-image: url('../../public/image/cancel.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    transition: cubic-bezier(0.22, 0.4, 0, 2.64) 0.2s;
+}
+#close:hover{
+    transform: scale(1.4);
+}
+
+
+
+@keyframes open {
+    0%{
+        opacity: 0%;
+    }
+    100%{
+        opacity: 100%;
+    }
+}
+
+
+
+
+
+/************ banner**************/
+
+
+.banner{
+    width: 100%;
+    height: 450px;
+    background-image: url('../../public/image/jesus-eca-wewzzx11ShI-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.writing{
+    width: 100%;
+    height: 150px;
+    background-color: #EAEAEA;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:  center;
+}
+
+.writing h1{
+    font-family: "Jost", sans-serif;
+    font-size: 2.25rem;
+}
+.writing h2{
+    color: #555353;
+    font-family: "Roboto", sans-serif;
+    font-size: 1.25rem;
+    text-decoration: underline;
+}
+.scrollbar-banner{
+    padding: 10px 0;
+    display: flex;
+
+}
+.scrollbar{
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    background-color: #D9D9D9;
+    margin: 0px 12px;
+    border-radius: 45%;
+}
+#scrollbar2{
+    background-color: #746D6D;
+}
+
+.container-carrosel{
+    overflow: hidden;
+    height: 500px;
+    width: 100%;
+}
+.container-images{
+    display: flex;
+    transition:all 2s ;
+    transform: translateX(0);
+    
+
+}
+
+.wrapper-carrosel{
+    width:  100%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+}
+
+
+#img1{
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    background-position: center;
+    background-size: cover;
+    background-image: url('../../public/image/cornelia-ng-zZLhoEwGCeM-unsplash.jpg');
+    
+    
+}
+#img2{
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-position: center;
+    background-size: cover;
+    background-image: url('../../public/image/jasmin-chew-WKD2vIe8Rb0-unsplash.jpg');
+}
+#img3{
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-position: center;
+    background-size: cover;
+    background-image: url('../public/image/jesus-eca-wewzzx11ShI-unsplash.jpg');
+    
+}
+
+.before{
+    animation: before 2s ease-in-out 2s ;
+
+}
+@keyframes before {
+    0%{
+        left: 0px;
+    }
+    100%{
+        left: -100vw;
+    }
+}
+    
+
+
+.after{
+    animation: after 2s ease-in-out 2s ;
+
+}
+@keyframes after {
+    0%{
+        left: 100vw;
+    }
+    100%{
+        left: 0vw;
+    }
+}
+
+
+/************  categories  **************/
+.categories{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 53px 0;
+
+}
+.categories h1{
+    font-family: "Jost", sans-serif;
+    font-size: 1.5rem;
+}
+
+.categories h2{
+    font-family: "Jost", sans-serif;
+    font-size: 1rem;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.categories h2::after{
+    margin-top: 1rem;
+    content: "";
+    background-color: #f25a70;
+    width: 120px;
+    height: 1px;
+    vertical-align: middle;
+}
+
+
+/******** responsive ********/
+
+@media (min-width: 800px){
+    
+    nav{
+        height: 10vh;
+    }
+    .banner{
+        height: 70vh; 
+    }
+    .writing{
+        height: 20vh; 
+    }
+}
