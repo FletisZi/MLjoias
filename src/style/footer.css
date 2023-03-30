@@ -46,6 +46,16 @@ h3::before{
     display: flex;
 }
 
+footer ul {
+    margin-top: 0.5rem;
+    list-style: none;
+}
+footer ul a{
+    text-decoration: none;
+    font-family: "Roboto",sans-serif;
+    color: #555353;
+}
+
 
 /******** responsive ********/
 

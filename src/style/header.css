@@ -46,6 +46,10 @@ nav{
     font-weight: 700;
     text-decoration: none;
     color: #555353;    
+    transition: all 0.2s;
+}
+.menu-bar nav a:hover{
+    transform: scale(1.2);
 }
 #close{
     width: 40px;height: 40px;
@@ -213,6 +217,9 @@ nav{
     align-items: center;
     padding: 53px 0;
 
+}
+.categories:hover{
+    cursor: pointer;
 }
 .categories h1{
     font-family: "Jost", sans-serif;
