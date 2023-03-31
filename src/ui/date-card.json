@@ -1,22 +1,22 @@
 {
     "cards":[
         {
-            "name":"MasterCard",
+            "name":"Colar c/ pinjente",
             "id":"1",
             "value":"",
             "img": "0001"
         },
         {
-            "name":"Cielo",
+            "name":"Anel de brilhante",
             "id":"2",
             "value":"",
             "img": "0002"
         },
         {
-            "name":"MasterCard",
+            "name":"Colar de ouro c/ pinjente",
             "id":"3",
             "value":"",
-            "img": "0001"
+            "img": "0005"
         },
         {
             "name":"Cielo",
