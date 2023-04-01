@@ -4,49 +4,57 @@
             "name":"Colar c/ pinjente",
             "id":"1",
             "value":"",
-            "img": "0001"
+            "img": "0001",
+            "categories":"colar"
         },
         {
             "name":"Anel de brilhante",
             "id":"2",
             "value":"",
-            "img": "0002"
+            "img": "0002",
+            "categories":"anel"
         },
         {
             "name":"Colar de ouro c/ pinjente",
             "id":"3",
             "value":"",
-            "img": "0005"
+            "img": "0005",
+            "categories":"colar"
         },
         {
             "name":"Cielo",
             "id":"4",
             "value":"",
-            "img": "0002"
+            "img": "0002",
+            "categories":"anel"
         },
         {
             "name":"MasterCard",
             "id":"5",
             "value":"",
-            "img": "0001"
+            "img": "0001",
+            "categories":"colar"
         },
         {
             "name":"Cielo",
             "id":"6",
             "value":"",
-            "img": "0002"
+            "img": "0002",
+            "categories":"anel"
         },
         {
             "name":"Cielo",
             "id":"6",
             "value":"",
-            "img": "0002"
+            "img": "0002",
+            "categories":"anel"
         },
         {
             "name":"Cielo",
             "id":"6",
             "value":"",
-            "img": "0002"
+            "img": "0002",
+            "categories":"anel"
         }
     ]
 }

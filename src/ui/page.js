@@ -7,10 +7,6 @@ function app(){
         e.preventDefault;
         document.querySelector('.menu-bar').classList.add('hide');
     });
-    let categories = document.querySelector('.categories').addEventListener('click', (e)=>{
-        e.preventDefault;
-        document.querySelector('.menu-bar').classList.add('hide');
-    });
     
     up_dates();
 
@@ -19,12 +15,36 @@ function app(){
 
 document.addEventListener("DOMContentLoaded", app());
 
+
+
+
+/****** Cards ******/
+
+
+
+
+// quantidade de card a ser mostrada
+var quant_show = 3;
+
+
+let mais = document.querySelector('#mostrar').addEventListener('click',(e)=>{
+    e.preventDefault;
+    quant_show += 2;
+    let section_card = document.querySelector(".section-card");
+    section_card.innerHTML = "";
+    up_dates();
+    
+});
+
+//obejto construtor do elemento card
+
 class Card{
-    constructor(name,id,value,img){
+    constructor(name,id,value,img,categories){
         this.name = name;
         this.id = id;
         this.value = value;
         this.img = img;
+        this.categories = categories;
     }
 
     create_Card(){
@@ -75,12 +95,15 @@ function up_dates(){
             date.cards.map((card,position)=>{
                 let section_card = document.querySelector(".section-card");
     
-                if(position < quant_show){
+                if(document.querySelectorAll(".wrapper-cards").length < quant_show){
                     
+                    if(card.categories == "anel"){
+                        
                     
-                    let MyCard = new Card(card.name,card.id,'',card.img);
+                    let MyCard = new Card(card.name,card.id,'',card.img,'');
     
                     section_card.innerHTML += `${MyCard.create_Card()}`;
+                    }
                 }
             })
         });

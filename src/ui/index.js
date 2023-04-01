@@ -112,11 +112,12 @@ let mais = document.querySelector('#mostrar').addEventListener('click',(e)=>{
 //obejto construtor do elemento card
 
 class Card{
-    constructor(name,id,value,img){
+    constructor(name,id,value,img,categories){
         this.name = name;
         this.id = id;
         this.value = value;
         this.img = img;
+        this.categories = categories;
     }
 
     create_Card(){
@@ -170,7 +171,7 @@ function up_dates(){
                 if(position < quant_show){
                     
                     
-                    let MyCard = new Card(card.name,card.id,'',card.img);
+                    let MyCard = new Card(card.name,card.id,'',card.img,'');
     
                     section_card.innerHTML += `${MyCard.create_Card()}`;
                 }
