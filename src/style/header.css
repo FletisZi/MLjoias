@@ -9,6 +9,28 @@ nav{
     justify-content: space-between;
     margin: 0 30px;
 }
+
+
+.bar-search{
+    display: flex;
+    align-items: center;
+}
+.bar-search input{
+    background-color: #EAEAEA ;
+    height: 40px;
+    width: 200px;
+    border-radius: 5px;
+    font-size: 30px;
+    padding: 0 10px;
+}
+.hide{
+    display: none;
+}
+
+
+
+
+
 #logo{
     margin-top: 20px;
     width: 150px;
@@ -245,6 +267,9 @@ nav{
 }
 
 
+
+
+
 /******** responsive ********/
 
 @media (min-width: 800px){
@@ -257,5 +282,23 @@ nav{
     }
     .writing{
         height: 20vh; 
+    }
+}
+
+@media (max-width: 600px){
+    .bar-search.secund{
+        position: fixed;
+        left: 0;
+        top: 0;
+        background-color: #FAF4EC;
+        width: 100%;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .bar-search input{
+        min-width: 200px;
+        width: 80%;
     }
 }

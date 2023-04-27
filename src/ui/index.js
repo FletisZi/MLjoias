@@ -14,6 +14,13 @@ function app(){
     
     up_dates();
 
+    document.querySelector('#search img').addEventListener('click',(e)=>{
+        
+        pesquisa.open_inp(document.querySelector('.bar-search'));
+        console.log(document.querySelector('#search img'))
+        return(console.log(document.querySelector('#search img')));
+    });
+    
 
 }
 
@@ -198,6 +205,24 @@ function up_dates(){
 //         console.log('Recebido o seguinte em vez do JSON válido:', corpoTexto); // 6
 //     });
 // });
+
+
+
+class Search{
+    constructor(){
+
+    };
+
+    open_inp(barra_pesquisa){
+        barra_pesquisa.classList.toggle('secund');
+        barra_pesquisa.children[1].classList.toggle('hide');       
+    }; 
+
+};
+
+
+let pesquisa = new Search;
+
 
 
 
