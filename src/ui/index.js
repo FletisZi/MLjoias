@@ -177,7 +177,7 @@ class Card{
                     <div class="img" alt="Imagem MLjoias" style="background-image: url('../public/image/${img}.jpg');"></div>
                     <div class="imgs_nexts"></div>
                     <p>${description}</p>
-                    <a href="https://web.whatsapp.com/send?phone=5517997269081&text=Ol%C3%A1!%20Fiquei%20interessado%20em%20${description}%20${img}"  target="_blank">ADIQUIRA JÁ <img src="../public/image/icon-whatsapp.svg" alt="img whatsapp" style="margin-left: 5px;" ></a>
+                    <a href="https://api.whatsapp.com/send?phone=5517997269081&text=Ol%C3%A1!%20Fiquei%20interessado%20em%20${description}%20${img}"  target="_blank">ADIQUIRA JÁ <img src="../public/image/icon-whatsapp.svg" alt="img whatsapp" style="margin-left: 5px;" ></a>
                 </article>
             </div>
         </section>
