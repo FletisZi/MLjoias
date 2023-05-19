@@ -12,6 +12,7 @@ function app(){
         document.querySelector('.menu-bar').classList.add('hide');
     });
     
+    
     up_dates();
 
     document.querySelector('#search img').addEventListener('click',(e)=>{
@@ -20,8 +21,10 @@ function app(){
         console.log(document.querySelector('#search img'))
         return(console.log(document.querySelector('#search img')));
     });
-    
 
+    
+    
+    
 }
 
 document.addEventListener("DOMContentLoaded", app());
@@ -127,7 +130,7 @@ class Card{
         this.categories = categories;
     }
 
-    create_Card(){
+    create_Card(name){
 
 
         let structure_Card = `
@@ -144,7 +147,7 @@ class Card{
 
         return (structure_Card);
     }
-
+    
 
     Buy_Card(nameClass){
         
@@ -164,7 +167,42 @@ class Card{
     
     }
 
+    open_card(img,description,link){
+        let Structure_Card_Open = `
+        <div class="opacity"></div>
+        <section class="card_select_main ">
+            <div class="card_select_box">
+                <div id="close_card"> <img src="../public/image/icon-close.svg" alt=""></div>
+                <article class="card_select_container">
+                    <div class="img" alt="Imagem MLjoias" style="background-image: url('../public/image/${img}.jpg');"></div>
+                    <div class="imgs_nexts"></div>
+                    <p>${description}</p>
+                    <a href="https://web.whatsapp.com/send?phone=5517997269081&text=Ol%C3%A1!%20Fiquei%20interessado%20em%20${description}%20${img}"  target="_blank">ADIQUIRA JÁ <img src="../public/image/icon-whatsapp.svg" alt="img whatsapp" style="margin-left: 5px;" ></a>
+                </article>
+            </div>
+        </section>
+        
+        `;
+
+        let cardNew = document.createElement('div');
+        cardNew.innerHTML = (Structure_Card_Open);
+        document.querySelector('main').insertBefore(cardNew,document.querySelector('main').firstChild);
+        let buttom_close = document.querySelector('#close_card').addEventListener('click',(e)=>{this.close_card()});
+        
+        
+        
+    }
+
+    close_card(){
+        document.querySelector('main').firstChild.parentNode.removeChild(document.querySelector('main').firstChild)
+    }
+
+    
+
 }
+
+
+
 
 // Converter o arquivo date-card.json em objetos js
 
@@ -181,8 +219,12 @@ function up_dates(){
                     let MyCard = new Card(card.name,card.id,'',card.img,'');
     
                     section_card.innerHTML += `${MyCard.create_Card()}`;
+
+                    
+                    
                 }
             })
+            return(date);
         });
     });
 }
@@ -208,6 +250,10 @@ function up_dates(){
 
 
 
+
+/*****************barra de pesquisa *************************/
+
+
 class Search{
     constructor(){
 
@@ -226,3 +272,29 @@ let pesquisa = new Search;
 
 
 
+
+document.addEventListener('click',(e)=>{
+
+    const targetEl = e.target;
+
+    if(targetEl.classList.contains('button-add')){
+        console.log(targetEl.id);
+
+
+        fetch("./ui/date-card.json").then((response)=>{
+            response.json().then((date)=>{
+        
+                date.cards.map((card,position)=>{
+                    if(card.id == targetEl.id){
+                        let MyCard = new Card('','','','','');
+                        MyCard.open_card(card.img,card.name,);
+                    };
+
+                });
+            });
+        });
+
+    
+    };
+    
+});
