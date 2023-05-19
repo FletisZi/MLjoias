@@ -139,7 +139,7 @@ class Card{
                 <div class="container-cards">
                     <div class="image" style=" background-image: url('../public/image/${this.img}.jpg');"></div>
                     <h2>${this.name}</h2>
-                    <a href="#" class="button-add buy" id="${this.id}">ADQUIRA JÁ</a>
+                    <a href="#!" class="button-add buy" id="${this.id}">ADQUIRA JÁ</a>
                 </div>
             </article>
         </section>
@@ -278,7 +278,6 @@ document.addEventListener('click',(e)=>{
     const targetEl = e.target;
 
     if(targetEl.classList.contains('button-add')){
-        console.log(targetEl.id);
 
 
         fetch("./ui/date-card.json").then((response)=>{
