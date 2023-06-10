@@ -174,8 +174,8 @@ class Card{
             <div class="card_select_box">
                 <div id="close_card"> <img src="../public/image/icon-close.svg" alt=""></div>
                 <article class="card_select_container">
-                    <div class="img" alt="Imagem MLjoias" style="background-image: url('../public/image/${img}.jpg');"></div>
-                    <div class="imgs_nexts"></div>
+                    <div class="img" alt="Imagem MLjoias" style="background-image: url('../public/image/${img}_1.jpg');"></div>
+                    <div class="imgs_nexts"><img id="1" src="../public/image/${img}_1.jpg"></img><img id="2" src="../public/image/${img}_2.jpg"></img><img id="3" src="../public/image/${img}_3.jpg"></img></div>
                     <p>${description}</p>
                     <a href="https://api.whatsapp.com/send?phone=5517997269081&text=Ol%C3%A1!%20Fiquei%20interessado%20em%20${description}%20${img}"  target="_blank">ADIQUIRA JÁ <img src="../public/image/icon-whatsapp.svg" alt="img whatsapp" style="margin-left: 5px;" ></a>
                 </article>
@@ -197,6 +197,11 @@ class Card{
         document.querySelector('main').firstChild.parentNode.removeChild(document.querySelector('main').firstChild)
     }
 
+    next_card(urlimg,element,ids){
+        //irá trocar a foto principal url
+        element.style.backgroundImage = `${urlimg}${ids}.jpg")`;
+        
+    }
     
 
 }
@@ -277,6 +282,9 @@ document.addEventListener('click',(e)=>{
 
     const targetEl = e.target;
 
+
+    
+
     if(targetEl.classList.contains('button-add')){
 
 
@@ -287,6 +295,7 @@ document.addEventListener('click',(e)=>{
                     if(card.id == targetEl.id){
                         let MyCard = new Card('','','','','');
                         MyCard.open_card(card.img,card.name,);
+                        
                     };
 
                 });
@@ -295,5 +304,61 @@ document.addEventListener('click',(e)=>{
 
     
     };
+
+    if( targetEl.tagName == 'IMG'){
+
+        
+
+        let element_image = document.querySelector('.card_select_container').children[0];
+
+        function urls(){
+           //pegar a url da img principal edita o final da url
+            let MyCard = new Card('','','','','');
+            let urlIMG = element_image.style.backgroundImage.replace(`_${element_image.style.backgroundImage[26]}.jpg")`,`_`);
+            MyCard.next_card(urlIMG,element_image,targetEl.id);
+            
+        
+        }
+
+        switch(targetEl.id){
+            case '1':
+                urls();
+                break;  
+            case '2':
+                urls();
+                break;
+            case '3':
+                urls()
+                break;
+            default:
+        }
+        
+        //MyCard.next_card(targetEl,targetEl.id);
+       
+       
+    };
+
+    
+    
+       
+    if(targetEl.classList == 'pgAneis' ){
+        console.log('click');
+        localStorage.setItem("namePage", "Anéis / Alianças");
+        window.location.href = "./page.html";
+        
+    }
+    if(targetEl.classList == 'pgColares' ){
+        localStorage.setItem("namePage", "Colares");
+        window.location.href = "./page2.html";
+        
+    }
+    if(targetEl.classList == 'pgColares' ){
+        localStorage.setItem("namePage", "Colares");
+        window.location.href = "./page2.html";
+        
+    }s
+
+
+    
     
 });
