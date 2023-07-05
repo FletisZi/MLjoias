@@ -1,33 +1,7 @@
-function app(){
+import App from "./events-Gobal.js";
+import Card from "./create-Card.js";
 
-    let close = document.getElementById('close').addEventListener('click', ()=>{   
-        document.querySelector('.menu-bar').classList.remove('hide');
-    });
-    let menu = document.getElementById('menu').addEventListener('click',(e)=>{
-        e.preventDefault;
-        document.querySelector('.menu-bar').classList.add('hide');
-    });
-    let categories = document.querySelector('.categories').addEventListener('click', (e)=>{
-        e.preventDefault;
-        document.querySelector('.menu-bar').classList.add('hide');
-    });
-    
-    
-    up_dates();
-
-    document.querySelector('#search img').addEventListener('click',(e)=>{
-        
-        pesquisa.open_inp(document.querySelector('.bar-search'));
-        console.log(document.querySelector('#search img'))
-        return(console.log(document.querySelector('#search img')));
-    });
-
-    
-    
-    
-}
-
-document.addEventListener("DOMContentLoaded", app());
+document.addEventListener("DOMContentLoaded", App() , up_dates());
 
 
 
@@ -104,12 +78,7 @@ setInterval(()=> {carrosel.action()}, 4000);
 /****** Cards ******/
 
 
-
-
-// quantidade de card a ser mostrada
-var quant_show = 3;
-
-
+//mostrar mais cards
 let mais = document.querySelector('#mostrar').addEventListener('click',(e)=>{
     e.preventDefault;
     quant_show += 2;
@@ -119,97 +88,10 @@ let mais = document.querySelector('#mostrar').addEventListener('click',(e)=>{
     
 });
 
-//obejto construtor do elemento card
-
-class Card{
-    constructor(name,id,value,img,categories){
-        this.name = name;
-        this.id = id;
-        this.value = value;
-        this.img = img;
-        this.categories = categories;
-    }
-
-    create_Card(name){
-
-
-        let structure_Card = `
-        <section class="wrapper-cards" >
-            <article class="cards" >
-                <div class="container-cards">
-                    <div class="image" style=" background-image: url('../public/image/${this.img}.jpg');"></div>
-                    <h2>${this.name}</h2>
-                    <a href="#!" class="button-add buy" id="${this.id}">ADQUIRA JÁ</a>
-                </div>
-            </article>
-        </section>
-        `;
-
-        return (structure_Card);
-    }
-    
-
-    Buy_Card(nameClass){
-        
-        
-        nameClass.classList.toggle('buy');
-        nameClass.classList.toggle('whats');
-
-        
-        if(nameClass.classList.value == 'button-add buy'){
-            nameClass.innerHTML = 'ADQUIRA JÁ';
-        }
-        if(nameClass.classList.value == 'button-add whats'){
-            
-            nameClass.innerHTML = 'IR PARA WHATS';
-        }
-        
-    
-    }
-
-    open_card(img,description,link){
-        let Structure_Card_Open = `
-        <div class="opacity"></div>
-        <section class="card_select_main ">
-            <div class="card_select_box">
-                <div id="close_card"> <img src="../public/image/icon-close.svg" alt=""></div>
-                <article class="card_select_container">
-                    <div class="img" alt="Imagem MLjoias" style="background-image: url('../public/image/${img}_1.jpg');"></div>
-                    <div class="imgs_nexts"><img id="1" src="../public/image/${img}_1.jpg"></img><img id="2" src="../public/image/${img}_2.jpg"></img><img id="3" src="../public/image/${img}_3.jpg"></img></div>
-                    <p>${description}</p>
-                    <a href="https://api.whatsapp.com/send?phone=5517997269081&text=Ol%C3%A1!%20Fiquei%20interessado%20em%20${description}%20${img}"  target="_blank">ADIQUIRA JÁ <img src="../public/image/icon-whatsapp.svg" alt="img whatsapp" style="margin-left: 5px;" ></a>
-                </article>
-            </div>
-        </section>
-        
-        `;
-
-        let cardNew = document.createElement('div');
-        cardNew.innerHTML = (Structure_Card_Open);
-        document.querySelector('main').insertBefore(cardNew,document.querySelector('main').firstChild);
-        let buttom_close = document.querySelector('#close_card').addEventListener('click',(e)=>{this.close_card()});
-        
-        
-        
-    }
-
-    close_card(){
-        document.querySelector('main').firstChild.parentNode.removeChild(document.querySelector('main').firstChild)
-    }
-
-    next_card(urlimg,element,ids){
-        //irá trocar a foto principal url
-        element.style.backgroundImage = `${urlimg}${ids}.jpg")`;
-        
-    }
-    
-
-}
-
-
-
-
 // Converter o arquivo date-card.json em objetos js
+
+// quantidade de card a ser mostrada
+var quant_show = 3;
 
 function up_dates(){
     fetch("./ui/date-card.json").then((response)=>{
@@ -278,87 +160,3 @@ let pesquisa = new Search;
 
 
 
-document.addEventListener('click',(e)=>{
-
-    const targetEl = e.target;
-
-
-    
-
-    if(targetEl.classList.contains('button-add')){
-
-
-        fetch("./ui/date-card.json").then((response)=>{
-            response.json().then((date)=>{
-        
-                date.cards.map((card,position)=>{
-                    if(card.id == targetEl.id){
-                        let MyCard = new Card('','','','','');
-                        MyCard.open_card(card.img,card.name,);
-                        
-                    };
-
-                });
-            });
-        });
-
-    
-    };
-
-    if( targetEl.tagName == 'IMG'){
-
-        
-
-        let element_image = document.querySelector('.card_select_container').children[0];
-
-        function urls(){
-           //pegar a url da img principal edita o final da url
-            let MyCard = new Card('','','','','');
-            let urlIMG = element_image.style.backgroundImage.replace(`_${element_image.style.backgroundImage[26]}.jpg")`,`_`);
-            MyCard.next_card(urlIMG,element_image,targetEl.id);
-            
-        
-        }
-
-        switch(targetEl.id){
-            case '1':
-                urls();
-                break;  
-            case '2':
-                urls();
-                break;
-            case '3':
-                urls()
-                break;
-            default:
-        }
-        
-        //MyCard.next_card(targetEl,targetEl.id);
-       
-       
-    };
-
-    
-    
-       
-    if(targetEl.classList == 'pgAneis' ){
-        console.log('click');
-        localStorage.setItem("namePage", "Anéis / Alianças");
-        window.location.href = "./page.html";
-        
-    }
-    if(targetEl.classList == 'pgColares' ){
-        localStorage.setItem("namePage", "Colares");
-        window.location.href = "./page2.html";
-        
-    }
-    if(targetEl.classList == 'pgColares' ){
-        localStorage.setItem("namePage", "Colares");
-        window.location.href = "./page2.html";
-        
-    }s
-
-
-    
-    
-});

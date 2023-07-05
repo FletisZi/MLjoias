@@ -1,3 +1,6 @@
+import Card from "./create-Card.js";
+import App from "./events-Gobal.js";
+
 let CreatePage = {
     init(){
         this.title();
@@ -8,38 +11,59 @@ let CreatePage = {
         document.querySelector('title').innerHTML = localStorage.getItem('namePage');
     },
     boddy(){
-        function app(){
+        
+        
+        document.addEventListener("DOMContentLoaded", App);
 
-            let close = document.getElementById('close').addEventListener('click', ()=>{   
-                document.querySelector('.menu-bar').classList.remove('hide');
-            });
-            let menu = document.getElementById('menu').addEventListener('click',(e)=>{
-                e.preventDefault;
-                document.querySelector('.menu-bar').classList.add('hide');
-            });
-            let categories = document.querySelector('.categories').addEventListener('click', (e)=>{
-                e.preventDefault;
-                document.querySelector('.menu-bar').classList.add('hide');
-            });
-            
-            
-           
+        const titlePage = document.createElement('h2');
+        titlePage.classList.add('title');
+        titlePage.innerHTML = `${localStorage.getItem('namePage')}`;
         
-            document.querySelector('#search img').addEventListener('click',(e)=>{
-                
-                pesquisa.open_inp(document.querySelector('.bar-search'));
-                console.log(document.querySelector('#search img'))
-                return(console.log(document.querySelector('#search img')));
-            });
+
+        const divCards = document.createElement('section');
+        divCards.classList.add('mostrar');
+        divCards.innerHTML = `
+            <section class="section-card">
+            
+            </section>
+            <a id="mostrar">Mais+</a>
+        `
+        let main = document.querySelector('main');
+        main.appendChild(titlePage);
+        main.appendChild(divCards);
+        up_dates();
+
         
+
+
+        
+ 
+        // Converter o arquivo date-card.json em objetos js
+        var quant_show = 3;
+        function up_dates(){
+            fetch("./ui/date-card.json").then((response)=>{
+                response.json().then((date)=>{
             
+                    date.cards.map((card,position)=>{
+                        let section_card = document.querySelector(".section-card");
             
+                        if(document.querySelectorAll(".wrapper-cards").length < quant_show){
+                            
+                            if(card.categories == "anel"){
+                                
+                            
+                            let MyCard = new Card(card.name,card.id,'',card.img,'');
             
+                            section_card.innerHTML += `${MyCard.create_Card()}`;
+                            }
+                        }
+                    })
+                });
+            });
         }
+
+
         
-        document.addEventListener("DOMContentLoaded", app());
-        // let card = new Card(this.convert[0].name,'','','','');
-        // document.body.appendChild(card.create_Card());
     },
  
 
